@@ -20,8 +20,8 @@
       </mat-form-field>
     </mat-toolbar>
   </div>
-  <div class="form-container">
-    <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()" class="employee-form">
+  <div class="employee-section flex">
+    <form [formGroup]="employeeForm" #formDirective="ngForm" (ngSubmit)="onSubmit(formDirective)" class="employee-form">
       <div class="form-control">
         <mat-form-field class="form-field">
           <mat-label>First Name</mat-label>
@@ -87,5 +87,55 @@
         <button mat-raised-button color="primary">Submit</button>
       </div>
     </form>
+
+    <div class="table-container">
+      <table mat-table [dataSource]="dataSource">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="firstName">
+          <th mat-header-cell *matHeaderCellDef> First Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="lastName">
+          <th mat-header-cell *matHeaderCellDef> Last Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="emailId">
+          <th mat-header-cell *matHeaderCellDef> Email Id </th>
+          <td mat-cell *matCellDef="let element"> {{element.emailId}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="phoneNumber">
+          <th mat-header-cell *matHeaderCellDef> Phone Number </th>
+          <td mat-cell *matCellDef="let element"> {{element.phoneNumber}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="address">
+          <th mat-header-cell *matHeaderCellDef> Address </th>
+          <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="position">
+          <th mat-header-cell *matHeaderCellDef> Position </th>
+          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="doj">
+          <th mat-header-cell *matHeaderCellDef> Date of Joining </th>
+          <td mat-cell *matCellDef="let element"> {{element.doj | date: 'dd/MM/yyyy'}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
   </div>
 </div>
