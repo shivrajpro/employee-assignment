@@ -2,6 +2,16 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.7.
 
+## How to run this project
+
+Steps:
+
+1.  clone the repository on your system
+2.  navigate to the project directory
+3.  run `npm install` command which creates node_modules directory
+4.  run `ng serve` command
+5.  open localhost:4200 in your browser to check the output
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
