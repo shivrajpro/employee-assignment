@@ -32,6 +32,9 @@
       <mat-form-field class="form-field-full-width">
         <mat-label>Phone Number</mat-label>
         <input matInput type="number" formControlName="phoneNumber" placeholder="enter phone number">
+        <mat-error *ngIf="phoneNumber.hasError('pattern')">
+          Invalid phone number
+        </mat-error>
       </mat-form-field>
     </div>
 

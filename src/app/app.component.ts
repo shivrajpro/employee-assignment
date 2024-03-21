@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
       firstName: '',
       lastName: '',
       emailId: ['', [Validators.required, Validators.email]],
-      phoneNumber: ['', [Validators.maxLength(10)]],
+      phoneNumber: ['', [Validators.pattern(/^[0-9]{10,10}$/)]],
       address: '',
       position: '',
       doj: '',
@@ -28,6 +28,10 @@ export class AppComponent implements OnInit {
 
   get emailId() {
     return this.employeeForm.controls['emailId'];
+  }
+
+  get phoneNumber() {
+    return this.employeeForm.controls['phoneNumber'];
   }
 
   onSubmit() {
