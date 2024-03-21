@@ -11,6 +11,9 @@ export class AppComponent implements OnInit {
 
   employeeForm: FormGroup;
   positionDropdown = ['Manager', 'Developer', 'Designer', 'HR'];
+  clientDropdown = ['Client A', 'Client B', 'Client C'];
+
+  selectedClient: string = 'Client A';
 
   constructor(private fb: FormBuilder) {
     this.employeeForm = this.fb.group({
